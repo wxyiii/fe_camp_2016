@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"> 
+	<title>login form</title>
+    <style type="text/css">
+      body{border: 0;margin: 0;background:
+      	 no-repeat url(Penguins.jpg);background-size: cover}
+      .wrap{width: 600px;height: 400px;margin:300px auto;
+      	background-color:rgba(255,255,255,0.7);
+      	text-align: center;border: 1px solid #FFFFFF;} /*请问用PPT中用相对定位和用margin定位的区别？*/
+      .title{width: 500px;height: 30px;border: 1px solid #C0C0C0;
+      	margin: 50px auto}
+      	h3{margin: 0;padding-top: 5px;font-weight: 600}
+      .form{width:280px;height: 250px;margin: 40px auto;border: 1px solid #f65930;}
+      input{width: :200px;height: 30px;margin: 20px;}
+      #buttons{display:block;width: 100px;margin: 30px auto;}
+    </style>
+    
+</head>
+<body>
+<script type="text/javascript">
+	function rec() {
+		alert("succeed");
+	}
+</script>
+<div class="wrap">
+	<div class="title">
+		<h3>登录界面</h3>
+	</div>
+	<div class="form">
+		<label for="name">请输入名字</label>
+		<input type="text" id="name" placeholder="请输入用户名">
+		<label for="login">请输入密码</label>
+		<input type="password" id="login" placeholder="请输入密码">
+		<button id="buttons" onclick="rec()">登录</button><!--请问input标签和button标签可以脱离form标签存在吗？-->
+	</div>
+</div>
+</body>
+</html>
