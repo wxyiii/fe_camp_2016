@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>picture's switch</title>
+	<style type="text/css">
+	.img-box{
+		width: 1800px;
+        height: 1000px;
+		margin: 0 auto;  
+		position: relative; 
+           }
+        .img-box img{
+            position: absolute;
+            width: 1800px;
+            height: 1000px;
+            top: 0;
+            left: 0;
+        }
+        .btn-box{
+        	width:220px; 
+            height: 140px;
+            position:absolute;
+            bottom: 500px;
+            left: 1200px;
+        }
+        .btn-box button{
+            width: 200px;
+            height: 40px;
+            border: 1px solid #89cbdb;
+            border-radius: 5px;
+            font-size: 28px;
+            margin: 30px 10px;
+            color: #4c8bf5;
+            outline: none;
+            display: block;
+           background-color: #C0C0C0;
+        }
+        
+        .btn-box button:hover{background-color: #86f266;}
+    
+
+                </style>
+
+</head>
+<body>
+<div class="img-box">
+    <img id="img1" src="xx1.jpg">
+    <img id="img2" src="bw1.jpg">
+</div>
+<div class="btn-box">
+    <button type="button" onclick="document.getElementById('img2')
+    .style.visibility='hidden'">BG1</button>
+    <button onclick="document.getElementById('img2').style.
+    visibility='visible'">BG2</button>
+</div>
+</body>
+</html>
