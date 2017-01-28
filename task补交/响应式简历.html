@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport"
+content="width=device-width,initial-scale=1.0,
+maximum-scale=6.0,minimum-scale=2.0">
+<style type="text/css">
+    body{
+    	font-family:Caflisch,Cursive;
+
+    }
+	#mainbody{
+		width: 100%;
+		background-color: lightgreen;
+		overflow: hidden;
+		border: 1px #000 solid;
+	}
+	#header{
+		height: 50px;
+		background-color: lightblue;
+		width: 100%;
+		display: block;
+		margin:3px;
+		line-height: 50px;
+	}
+	#container{
+		width: 100%;
+		overflow: hidden;
+	}
+	#aside{
+		width: 30%;
+		border: 1px #C0C0C0 solid;
+		float: left;
+		padding-bottom: 99em;
+		margin-bottom: -99em;
+		min-height: 200px;
+		box-sizing:border-box;
+		
+	}
+	#artical{
+		width: 70%;
+		border: 1px #C0C0C0 solid;
+		overflow: hidden;
+		float: right;
+		padding-bottom: 99em;
+		margin-bottom: -99em;
+		min-height: 200px;
+		box-sizing:border-box;
+	}
+	.h11{
+		float: left;
+		height: 100%;
+		line-height: 50px;
+		margin-left: 40px;
+	}
+	.h11 span{
+		color: hsl(210,60,80);
+	}
+	#photo{
+		width: 60%;
+		height: 0px;
+		padding-top: 50%;
+		box-sizing:border-box;
+		overflow: hidden;
+		position: relative;
+
+	}
+	#message{
+		margin: 5px 10px;
+	}
+	#message p::before{
+		background-color: lightyellow;
+		height: 1em;
+		width: 1em;
+		}
+    .m1::before{
+    	content: '*';
+    	height: 1em;
+    	width: 1em;
+    	background-color: lightyellow;
+    	float: left;
+    }
+    .m2::before{
+    	content: '*';
+    	height: 1em;
+    	width: 1em;
+    	background-color: lightyellow;
+    	float: left;
+    }
+    .m3::before{
+    	content: '*';
+    	height: 1em;
+    	width: 1em;
+    	background-color: lightyellow;
+    	float: left;
+    }
+    .m1,.m2,.m3{
+    	border-bottom: 1px #FF0000 solid;
+    	width: 80%;
+    	margin-left:10px;
+    	margin-right: 10px;
+    }
+    img{
+    	position: absolute;
+    	bottom: 30px;
+    	left: 30px;
+    }
+</style>
+	<title>王修远响应式简历</title>
+</head>
+<body>
+<div id="mainbody">
+	<div id="header">
+	<div class="h11">
+		<p>
+			模板编号：<span>5201314</span>
+		</p>
+	</div>
+	<div class="h11">
+		<p>
+			<span>支持PDF下载</span>
+		</p>
+	</div>
+	</div>
+	<div id="container">
+		<div id="aside">
+			<div id="photo">
+				<img src="u=205650544,3272710530&fm=23&gp=0.jpg">
+			</div>
+			<div id="message">
+				<p>age:&nbsp<span>24</span></p>
+				<p>position:&nbsp<span>harbin</span></p>
+				<p>tel:&nbsp<span>158XXXXXXXXX</span></p>
+				<p>mail address:&nbsp<span>7411556455@qq.com</span></p>
+			</div>
+		</div>
+		<div id="artical">
+			<div class="m1">
+				<p>education background</p>
+				<p>负责公司内部业务系统的设计及改进，参与公司网上商城系统产品功能设计及实施工作。</p>
+			</div>
+			<div class="m2">
+				<p>experience affairs</p>
+				<p>c++,java,数据结构，数据库概论，数据库应用，数字逻辑，汇编语言，EDA技术，Windows环境编程实践，操作系统，计算方法，J2EE，计算机网络，Linux操作系统， 计算机图形学，编译原理，微机接口技术。</p>
+			</div>
+			<div class="m3">
+				<p>working expection</p>
+				<p>负责公司内部业务系统的设计及改进，参与公司网上商城系统产品功能设计及实施工作.</p>
+			</div>
+		</div> 
+	</div>
+</div>
+</body>
+</html>
