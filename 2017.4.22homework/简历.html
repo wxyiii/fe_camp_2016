@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>apply</title>
+	<style type="text/css">
+	    *{
+	    	padding: 0;
+	    	margin: 0;
+	    	box-sizing: border-box;
+	    }
+	    article,header,aside,section,footer{
+	    	display: block;
+	    }
+	    body{
+	    	font-family: sans-serif;
+	    	font-size: 14px;
+	    }
+	    h1,h2,h3,h4,h5,h6{
+	    	font-size: inherit;
+	    }
+		main{
+			overflow: hidden;
+		}
+		.left{
+            width: 20%;
+            padding: 2%;
+            padding-bottom: 99em;
+            margin-bottom: -99em;
+            background-color: cadetblue;
+            color: white;
+            float: left;
+		}
+		.intro{
+			text-align: center;
+			padding: 10%;
+			margin-top: 5%;
+		}
+		.pic{
+			overflow: hidden;
+			border:4px inset black;
+		}
+		.intro p{
+			height: 2.5em;
+			width: 100%;
+			line-height: 2.5em;
+			text-align: center;
+			margin: 10px 0px;
+		}
+        .bd1::before{
+        	content: '';
+        	display: inline-block;
+        	width: 2em;
+        	height: 1.5em;
+        	background-image: url(0170420131355.png);
+        	background-repeat: no-repeat;
+        	vertical-align: middle;
+        }
+        .bd2::before{
+        	content: '';
+        	display: inline-block;
+        	width: 2em;
+        	height: 1.5em;
+        	background-image: url(0170420131504.png);
+        	background-repeat: no-repeat;
+        }
+        .bd3::before{
+        	content: '';
+        	display: inline-block;
+        	width: 2em;
+        	height: 1.5em;
+        	background-image: url(0170420131521.png);
+        	background-repeat: no-repeat;
+        }
+        .bd4::before{
+        	content: '';
+        	display: inline-block;
+        	width: 2em;
+        	height: 1.5em;
+        	background-image: url(0170420131537.png);
+        	background-repeat: no-repeat;
+        }
+        .morin{
+        	display: block;
+        	padding: 2%;
+        	margin: 10px 0px 30px 0px;
+            
+        }
+        .morin p{
+        	margin: 5px 5px 5px 10px;
+        	position: relative;
+        }
+        .morin p::after{
+        	content: '';
+        	display: block;
+        	position: absolute;
+        	bottom: 6px;
+        	left: 70px;
+        	width: 95px;
+        	height: 6px;
+        	margin-left: 10px;
+        	background-image: linear-gradient(120deg, #d4fc79 0%, #96e6a1 100%);
+        }
+		.right{
+			width: 80%;
+			padding: 2%;
+			padding-bottom:99em;
+			font-size: 22px;
+			font-family: fantasy;
+			margin-bottom: -99em;
+			background-color: hsl(110,65%,55%);
+			float: left;
+		}
+		.right header{
+			width: 100%;
+			height: 200px;
+		}
+		.right h1{
+			margin-top: 50px;
+			font-size: 55px;
+			font-style: italic;
+			font-weight: 800px;
+			font-family: fantasy;
+		}
+		.right section{
+			width: 100%;
+			padding: 2%;
+			margin: 25px 0px;
+		}
+		.right h3{
+			font-size: 25px;
+			font-family: serif;
+			font-weight: 600;
+			border-bottom: 3px solid hsl(160,80%,90%);
+			position: relative;
+		}
+		.ltitle1::before{
+			background-image: url(170420144427.png);
+		    content: '';
+			display: block;
+			width: 25px;
+			height: 25px;
+			position: absolute;
+			top: 5px;
+			left: -30px;
+			background-repeat: no-repeat;
+			
+		}
+		.ltitle2::before{
+			background-image: url(.ltitle.png);
+		    content: '';
+			display: block;
+			width: 25px;
+			height: 25px;
+			position: absolute;
+			top: 5px;
+			left: -30px;
+			background-repeat: no-repeat;
+		}
+		.ltitle3::before{
+			background-image: url(25616.png);
+		    content: '';
+			display: block;
+			width: 25px;
+			height: 25px;
+			position: absolute;
+			top: 5px;
+			left: -30px;
+			background-repeat: no-repeat;
+		}
+		.ltitle4::before{
+			background-image: url(0170420144533.png);
+		    content: '';
+			display: block;
+			width: 25px;
+			height: 25px;
+			position: absolute;
+			top: 5px;
+			left: -30px;
+			background-repeat: no-repeat;
+		}
+	</style>
+</head>
+<body>
+  <main class="contain">
+  		<aside class="left">
+  			<header class="intro">
+  				<section class="pic">
+  					<img src="github.jpg" alt="touxiang">
+  				</section>
+  				<p class="bd1">wxy</p>
+  				<p class="bd2">黑龙江省哈尔滨市</p>
+  				<p class="bd3">158XXXXXXX</p>
+  				<p class="bd4">215624852@qq.com</p>
+  			</header>
+  			<arcitle class="morin">
+  			    <h3>职业技能</h3>
+  				<p class="dd">高等数学</p>
+  				<p class="dd">大学物理</p>
+  				<p class="dd">线性代数</p>
+  				<p class="dd">打LOL</p>
+  			</arcitle>
+
+  		</aside>
+  		<article class="right">
+  			<header>
+  				<h1>wxy</h1>
+  				<h2>求职目标：华中科技大学宿管</h2>
+  			</header>
+  			<section class="text">
+  				<h3 class="ltitle1">教育背景</h3>
+  				<dd>毕业院校
+  					<dt>毕业于哈尔滨师范大学附属中学，高中三年主修娱乐项目</dt>
+  				</dd>
+  			</section>
+  			<section class="text">
+  				<h3 class="ltitle2">工作经验</h3>
+  				<ul>
+  					<li>暂无</li>
+  					<li>暂无</li>
+  				</ul>
+  			</section>
+  			<section class="text">
+  				<h3 class="ltitle3">实践经历</h3>
+  				<ul>
+  					<li>暂无</li>
+  					<li>暂无</li>
+  				</ul>
+  			</section>
+  			<section class="text">
+  				<h3 class="ltitle4">项目经历</h3>
+  				<ul>
+  					<li>暂无</li>
+  					<li>暂无</li>
+  				</ul>
+  			</section>
+  		</article>
+  	</main>	
+</body>
+</html>

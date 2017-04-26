@@ -137,11 +137,12 @@
 window.onload = function changebg() {
 	// body...
 	x = document.querySelectorAll('.xx');
-	for (var i = 0; i < x.length - 1; i++) {
+	for (let i = 0; i < x.length; i++) {
 		x[i].addEventListener('click',function() {
 			document.getElementsByTagName('body')[0].style.backgroundImage = 'url(x' + i + '.png)';
+			console.log('url(x' + i + '.png)');
 		})
-		console.log('url(x' + i + '.png)');
+		
 	}
 }
 </script>
