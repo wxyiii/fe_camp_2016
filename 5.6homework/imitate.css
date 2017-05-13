@@ -1,0 +1,78 @@
+        body{
+        	background-color: #eee;
+        }
+        body > header{
+        			display: block;
+        			width: 100%;
+        			margin: 0 auto;
+        			height: 40px;
+        			background-color: rgb(255,255,255);
+        			
+        }
+		nav{
+			display: block;
+			width: 340px;
+            float: right;
+            margin-right: 10%;
+		}
+        .dropdown{
+        	float: left;
+        	height: 40px;
+        	width: 20%;
+        	border-right: 1px  solid white; 
+        	position: relative;
+        }
+        .dropdown>a{
+        	display: block;
+        	width: 100%;
+        	height: 100%;
+        	text-align: center;
+        	color: rgb(0,0,0);
+        	line-height: 40px;
+        }
+        .content{
+        	display: none;
+        	position: absolute;
+        	width: 100px;
+        	height: 120px;
+        	background-color: rgb(255,255,255);
+        	padding: 10px 10% 0px 10%;
+        }
+        .content > a {
+        	text-decoration: none;
+        	color: #C0C0C0;
+        	display: block;
+        }
+        .dropdown:hover .content{
+        	display: block;
+        }
+        .c2{
+        	width: 280px;
+        	right: 0px;
+        }
+        .c2 p{
+        	padding: 10px 0px;
+        }
+        .c2 p:nth-child(1) {
+        	height: 30px;
+        	border-bottom: 1px solid #C0C0C0;
+        }
+        .c2 p:nth-child(2) {
+        	border-bottom: 1px solid #C0C0C0;
+        	text-align: center;
+        	position: relative;
+        }
+        .c2 p:nth-child(2)::before{
+        	content: '';
+        	display: block;
+        	height: 35px;
+        	width: 35px;
+        	background-image: url(pictures/tieba.JPG);	
+        	position: absolute;
+        	right: 215px;
+        	bottom: 3px;
+        }
+        .c2 p:nth-child(3) {
+            text-align: center;
+        }
+        
