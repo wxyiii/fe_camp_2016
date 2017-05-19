@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>picture switch</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		body{
+			background-image: url(pictures/0.jpg);
+			background-size: cover;
+			background-repeat: no-repeat;
+		}
+		section{
+			display: block;
+			width: 150px;
+			height: 100px;
+			padding: 10px 25px;
+			position: absolute;
+			left: 60%;
+			top: 30%;
+		}
+		button{
+			display: block;
+			height: 30px;
+			width: 100px;
+		}
+		section button:nth-child(1){
+			margin-bottom: 20px;
+		}
+	</style>
+</head>
+<body>
+   <section>
+   	  <button style="background-image: url(pictures/btn-blue.png);">小新</button>
+      <button style="background-image: url(pictures/btn-gray.png);">巴卫</button>
+   </section>
+   <script type="text/javascript">
+
+   function ps() {
+   		// body...
+   		var x = document.querySelectorAll('button');
+   		console.log(x);
+   		for (let i = 0; i < x.length; i++) {
+           x[i].addEventListener('click',function () {
+           	// body...
+             document.getElementsByTagName('body')[0].style.backgroundImage = 'url(pictures/' + i + '.jpg)';
+              console.log('15156')
+           })
+           console.log('url(' + i + '.jpg)');
+   		}
+   		}
+   		ps()
+
+   	</script>
+</body>
+</html>

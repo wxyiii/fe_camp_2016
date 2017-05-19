@@ -136,7 +136,7 @@
 <script type="text/javascript">
 window.onload = function changebg() {
 	// body...
-	x = document.querySelectorAll('.xx');
+	var x = document.querySelectorAll('.xx');
 	for (let i = 0; i < x.length; i++) {
 		x[i].addEventListener('click',function() {
 			document.getElementsByTagName('body')[0].style.backgroundImage = 'url(x' + i + '.png)';
