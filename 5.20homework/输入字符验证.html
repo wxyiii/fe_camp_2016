@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+  <p>请输入密码：</p>
+  <input></input>
+  <button>submit</button>
+	<script type="text/javascript">
+             (function a() {
+        var x = document.getElementsByTagName('button')[0];
+        x.addEventListener('click',function (){
+            var y = document.getElementsByTagName('input')[0];
+            var z = y.value.replace(/-/g,'').toUpperCase();
+          console.log(z);
+          if(z.length !== 20){
+            alert('sorry,please fill in correct numbers')
+          }
+          else {
+            return z;
+          }
+                           })
+      })()
+	</script>
+</body>
+</html>

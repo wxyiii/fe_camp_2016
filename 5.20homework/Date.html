@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+ 
+	<script type="text/javascript">
+(function () {
+  var arr = [];
+  var x = new Date();
+  x.setFullYear(2017,5,25);
+  var y = x.toDateString();
+  console.log(y);
+  var a = new Date(2017,8,1);
+  for(let i = 1;i <= 31;i++){
+    a.setDate(i);
+    if(a.getDay() == 3){
+      arr.push(a.getFullYear() + '/' + a.getMonth() + '/' + a.getDate())
+    }
+  }
+  console.log(arr);
+})()
+	</script>
+</body>
+</html>

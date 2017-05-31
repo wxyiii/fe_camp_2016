@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+  <p>请输入：</p>
+  <input></input>
+  <button>submit</button>
+	<script type="text/javascript">
+   (function a() {
+        var x = document.getElementsByTagName('button')[0];
+        x.addEventListener('click',function (){
+            var y = document.getElementsByTagName('input')[0].value;
+            var z = y.split(',').sort();
+            console.log(z);
+            var aa = [];
+            for(let i = 0;i < z.length;i++){
+              if(aa.join().indexOf(z[i]) === -1){
+                aa.push(z[i]);
+              }
+            }
+            console.log(aa);
+            return aa;
+                           })
+      })()
+	</script>
+</body>
+</html>
