@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>LIST</title>
+	<style type="text/css">
+		html{
+  font-size: 20px;
+}
+
+input,button{
+  font-size: 22px;
+}
+
+ul{
+  list-style-type:none;
+}
+
+ul>li:hover{
+  background: black;
+  color: white;
+}
+
+li{
+  height: 40px;
+  line-height: 40px;
+}
+
+@keyframes add
+{
+  from{opacity:0;}
+  to{opacity:1;}
+}
+
+@keyframes jian
+{
+  from{opacity:1;}
+  to{opacity:0;}
+}
+
+.fade0{
+  animation: add 2s ease;
+}
+
+.fade1{
+  animation: jian 2s ease;
+}
+	</style>
+</head>
+<body>
+	<div id="buttons">
+  <button disabled="disabled">insert</button>
+  <button disabled="disabled">delete</button>
+  <button>update</button>
+  <input id="rowtext" value="new row"/>
+</div>
+<ul id="datalist">
+  <li><label><input type="checkbox"/>row 1</label></li>
+  <li><label><input type="checkbox"/>row 2</label></li>
+  <li><label><input type="checkbox"/>row 3</label></li>
+  <li><label><input type="checkbox"/>row 4</label></li>
+  <li><label><input type="checkbox"/>row 5</label></li>
+  <li><label><input type="checkbox"/>row 6</label></li>
+</ul>
+<script type="text/javascript">
+const [insertBtn, deleteBtn, updateBtn] 
+  = Array.from(document.querySelectorAll('#buttons button'));
+
+const datalist = document.getElementById('datalist');
+const rowtext = document.getElementById('rowtext');
+
+function getAllCheckedRows(){
+	//选中被勾选的Li
+  return Array.from(datalist.querySelectorAll('li input:checked'))
+        .map(el=>el.parentNode.parentNode);
+}
+
+function createNewRow(){
+  var row = document.createElement('li');
+  row.className = 'fade0';
+  row.innerHTML = `<label><input type="checkbox"/>${rowtext.value}</label>`;
+  return row;
+}
+
+insertBtn.addEventListener('click', evt=>{
+  var checkedRows = getAllCheckedRows();
+  if(checkedRows.length){
+    checkedRows.forEach(row=>
+       row.insertAdjacentElement('afterend', createNewRow()));
+  }else{
+    datalist.appendChild(createNewRow());
+  }
+});
+
+deleteBtn.addEventListener('click', evt=>{
+  var checkedRows = getAllCheckedRows();
+  if(checkedRows.length){
+  checkedRows.className = 'fade1';//  这行不对
+  setTimeOut(checkedRows.forEach(row => row.remove()),2000);//这行也不对，点击按钮时浏览器报错了
+  }
+});
+
+updateBtn.addEventListener('click', evt=>{
+  var checkedRows = getAllCheckedRows();
+  if(checkedRows.length){
+    checkedRows.forEach(row=>row.childNodes[0].childNodes[1].textContent = rowtext.value);
+  }  
+});
+const x = Array.from(document.querySelectorAll('[disabled]'));
+var y = Array.from(document.querySelectorAll('[type=checkbox]'));
+datalist.addEventListener('change',evt => {
+  // if(y.reduce((b,a) => {a.checked === true && b},true))
+    // x.forEach(c => c.removeAttribute('disabled'));
+    y = Array.from(document.querySelectorAll('[type=checkbox]'));
+    for(var i = 0;i < y.length;i++){
+    	if(y[i].checked === true){
+    		x.forEach(c => c.removeAttribute('disabled'));
+    		break;
+    	}
+    	else
+    		x.forEach(d => d.setAttribute('disabled','disabled'));
+    }
+})
+</script>
+</body>
+</html>
