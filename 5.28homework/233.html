@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{
+			padding: 0;
+			margin: 0;
+			box-sizing: border-box;
+		}
+		main{
+			display: block;
+			width: 700px;
+			border: 2px solid #859628;
+			margin: 250px auto 0px auto;
+		}
+		.inside{
+			height: 500px;
+			width: 96%;
+			margin: 5px auto;
+			background-color: #926382;
+            display: block;
+		}
+		footer{
+			display: block;
+			width: 50px;
+			margin: 0 auto;
+			height: 60px;
+			background-color: hsla(86,50%,30%,0.1);
+		}
+        section{
+        	padding: 5px;
+        }
+		.demoSpan1
+		{height:40px; width:40px; display:block; position:relative;overflow:hidden; height:25px;margin: 0 auto;}
+        .demoSpan1:before
+        {content:''; height:20px; width:20px; display:block; border:5px solid #333; border-right-width:0; border-top-width:0; transform:rotate(-45deg);-webkit-transform:rotate(-45deg);-moz-transform:rotate(-45deg);-o-transform:rotate(-45deg);-ms-transform:rotate(-45deg); position:absolute; bottom:7px; left:7px;}
+        .vanish{
+          display: none;  
+        }
+	</style>
+</head>
+<body>
+	<main class="container">
+		<section class="inside"></section>
+	</main>
+	<footer class="button">
+		<section>more</section>
+		<span class="demoSpan1"></span>
+	</footer>
+	<script type="text/javascript">
+	var getLast = document.querySelector('.inside:last-child');
+    document.querySelector('.button').addEventListener('click',evt => {
+    document.querySelector('.button').className = 'vanish';
+    _creatBlock();
+    getLast = document.querySelector('.inside:last-child');
+    monitor();
+    // console.log(getLast);
+                                                 })
+
+function _creatBlock(){
+    var row = document.createElement('section');
+    row.className = 'inside';
+    document.querySelector('.container').appendChild(row);
+    // return row;
+  }
+
+    function monitor(argument) {
+    	// body...
+    	getLast.addEventListener('mouseover',function(evt){
+         if(getMouseY(evt) > 700){
+      	   _creatBlock();
+      	   getLast = document.querySelector('.inside:last-child');
+      	   monitor();
+      }
+    })
+    }
+  
+function getMouseY(evt){
+    var y = evt.clientY;
+    return y;
+ }
+	</script>
+</body>
+</html>

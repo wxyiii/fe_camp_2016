@@ -93,10 +93,10 @@ insertBtn.addEventListener('click', evt=>{
 });
 
 deleteBtn.addEventListener('click', evt=>{
-  var checkedRows = getAllCheckedRows();
+  var checkedRows = datalist.querySelectorAll('li input:checked').parentNode.parentNode;
   if(checkedRows.length){
   checkedRows.className = 'fade1';//  这行不对
-  setTimeOut(checkedRows.forEach(row => row.remove()),2000);//这行也不对，点击按钮时浏览器报错了
+  setTimeOut(Array.from(checkedRows).forEach(row => row.remove()),2000);//这行也不对，点击按钮时浏览器报错了
   }
 });
 
