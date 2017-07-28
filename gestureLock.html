@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<title>Document</title>
+	<style type="text/css">
+		* {
+			margin: 0;
+			padding:  0;
+		}
+	</style>
+</head>
+<body>
+	<canvas id="bg"></canvas>
+	<input type="radio" name="gg" checked class="set">set the password</input>
+	<input type="radio" name="gg" class="verify" disabled="disabled">verify the password</input>
+	<script type="text/javascript">
+		function gestureLock(argument) {
+			// body...
+            var r = 25; 
+            var marginX = 20;
+            var marginY = 20;
+            var width = 300;
+            var height = 300;
+            var b = document.querySelector('#bg');
+            var cxt = b.getContext("2d");
+            var pointArr = [];
+            var linePointArr = [];
+            var password = [];
+            function caculateDistance() {
+            	// body...计算横竖两个圆心之间距离
+            	var disX = (width - 2 * marginX - r * 2 * 3) / 2;
+            	var disY = (height - 2 * marginY - r * 2 * 3) / 2;
+            	return [disX,disY];
+            	console.log([disX,disY]);
+            }
+            function caculateNinePoint(dx,dy) {
+            	// body...计算九个点坐标
+            	var Re = [];
+            for (var row = 0; row < 3; row++) {
+                for (var col = 0; col < 3; col++) {
+                    var point = {
+                        X: (marginX + col * dx + ( col * 2 + 1) * r),
+                        Y: (marginY + row * dy + (row * 2 + 1) * r)
+                    };
+                    Re.push(point);
+                }
+            }
+            return Re;
+            }
+            function drawCircles(cxt,_pointArr) {
+            	// body...画九个元
+            	for (var i = 0; i < _pointArr.length; i++) {
+            		var point = _pointArr[i];
+            		cxt.fillStyle = "#000000";
+                    cxt.beginPath();
+                    cxt.arc(point.X, point.Y, r, 0, Math.PI * 2, true);
+                    cxt.closePath();
+                    cxt.fill();
+                    cxt.fillStyle = "#ffffff";
+                    cxt.beginPath();
+                    cxt.arc(point.X, point.Y, r - 2, 0, Math.PI * 2, true);
+                    cxt.closePath();
+                    cxt.fill();
+                    cxt.fillStyle = "#000000";
+                    cxt.beginPath();
+                    cxt.arc(point.X, point.Y, r -16, 0, Math.PI * 2, true);
+                    cxt.closePath();
+                    cxt.fill();
+            	}
+            }
+            function drawLine(getContext,_pointArr,_linePointArr,touch) {
+            	// body...
+            	if (_linePointArr.length > 0) {
+                getContext.beginPath();
+                for (var i = 0; i < _linePointArr.length; i++) {
+                    var pointIndex = _linePointArr[i];
+                    getContext.lineTo(_pointArr[pointIndex].X, _pointArr[pointIndex].Y);
+                }
+                getContext.lineWidth = 10;
+                getContext.strokeStyle = "#000000";
+                getContext.stroke();
+                var lastPointIndex = _linePointArr[_linePointArr.length - 1];
+                var lastPoint = _pointArr[lastPointIndex];
+                getContext.beginPath();
+                getContext.moveTo(lastPoint.X,lastPoint.Y);
+                getContext.lineTo(touch.X,touch.Y);
+                getContext.stroke();
+            }
+            }
+            function isPointSelect(touch,_linePointArr) {
+            	// body...判断经过了哪点
+            	for (var i = 0; i < pointArr.length; i++) {
+            		var p = pointArr[i];
+            		var x = Math.abs(p.X - touch.pageX);
+            		var y = Math.abs(p.Y - touch.pageY);
+            		var d = Math.pow((x * x + y * y),0.5);
+            		if (d < r) {
+            			if(_linePointArr.indexOf(i) < 0) { _linePointArr.push(i);}
+                        break;
+            		}
+            	}
+            }
+            function addEvents(canvas,getContext) {
+            	// body...
+            	canvas.addEventListener('touchstart',evt => isPointSelect(evt.touches[0],linePointArr));
+            	canvas.addEventListener('touchmove',function function_name(evt) {
+            		// body...
+            		evt.preventDefault();
+            		var touches = evt.touches[0];
+            		isPointSelect(touches,linePointArr);
+            		cxt.clearRect(0,0,width,height);
+            		drawCircles(cxt,pointArr);
+            		drawLine(cxt,pointArr,linePointArr,{X : touches.pageX,Y : touches.pageY});
+            	})
+            	canvas.addEventListener('touchend',evt => {
+            		cxt.clearRect(0,0,width,height);
+            		drawCircles(cxt,pointArr);
+            	})
+            }
+            function startVerify(argument) {
+		        // body...
+		        document.querySelector('.verify').removeAttribute('disabled');
+	        }
+	        function verify(argument) {
+		        // body...
+		        b.addEventListener('touchend',function (argument) {
+		        	// body...
+		        	if (document.querySelector('.verify').checked === true) {
+		        		if (linePointArr.toString() === localStorage.ppassword) {
+		        		alert('succeed');
+		        	  } 
+		        	    else {
+		        		alert('fail');
+		        	  }
+		        	}
+		        	else {
+		        		alert('please checked right button');
+		        	}
+		        })
+	        }
+            this.start = function (argument) {
+            	// body...
+            	width = document.body.offsetWidth;
+            	height = width;
+            	b.width = width;
+            	b.height = height;
+            	let a = caculateDistance();
+                pointArr = pointArr.concat(caculateNinePoint(a[0],a[1]));
+                addEvents(b,cxt);
+                drawCircles(cxt,pointArr);
+                set();
+            }
+            function set(argument) {
+            	// body...
+            	b.addEventListener('touchend',function set(argument) {
+            		// body...
+            		var a = linePointArr.length;
+            		if (password[0] === undefined) {
+            			if (a >= 5) {
+            				password = password.concat(linePointArr);
+            				alert('again');
+            			} else {
+            				alert('number wrong');
+            			}
+            		} 
+            		else {
+            			if (password.toString() === linePointArr.toString()) {
+            				localStorage.ppassword = password.toString();
+            				startVerify();
+            				verify();
+            				alert('set succeed')
+            				b.removeEventListener('touchend',set);
+            			}
+            			else {
+            				password = [];
+            				alert('already reset');
+            			}
+            		}
+            		linePointArr = [];
+            	})
+            }
+		}
+		var gel = new gestureLock();
+		gel.start();
+	</script>
+</body>
+</html>
